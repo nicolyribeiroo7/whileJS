@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: rgba(0, 0, 0, 0.25)
+    min-height: 100vh;
+    padding: 40px;
+    color: #fff;
+}
+
+
+button {
+    display: block;
+    margin: 0 auto 40px auto;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #1e90ff;
+    color: #fff;
+    border: none;
+}
+
+
+
+#painel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+.card {
+    background: #ffffff;
+    color: #1f2933;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+}
+
+
+.card h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #1e90ff;
+    border-bottom: 2px solid #1e90ff;
+    padding-bottom: 5px;
+}
+    </style>
+</head>
+<body>
+    
+    <button onclick="gerarTabuada()"> Gerar Tabuada</button>
+    <div id="painel"></div>
+
+    <script>
+        function gerarTabuada(){
+            let conteudo = "";
+            let tabuada = 1;
+
+            while(tabuada <= 10){
+                conteudo += '<div class="card">';
+                conteudo += `<h3> tabuada do ${tabuada}</h3>`;
+                let multiplicador = 1;
+
+                while (multiplicador <= 10) {
+                    let resultado = tabuada * multiplicador;
+                    conteudo += ` ${tabuada} x ${multiplicador} = ${resultado} <br>`;
+                    multiplicador++;
+                }
+                conteudo += '</div>';
+                document.getElementById("painel").innerHTML = conteudo;
+                tabuada++;
+            }
+        }
+    </script>
+</body>
+</html>
